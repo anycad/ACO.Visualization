@@ -1,0 +1,28 @@
+﻿<Metro:MetroWindow x:Class="AntColonyOptimization.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:AntColonyOptimization"
+        xmlns:Metro="http://metro.mahapps.com/winfx/xaml/controls"
+        xmlns:anycad="clr-namespace:AnyCAD.WPF;assembly=AnyCAD.WPF.NET8"
+        mc:Ignorable="d"
+        Title="AntColonyOptimization-TSP" Height="450" Width="800" WindowStartupLocation="CenterScreen">
+    <Metro:MetroWindow.RightWindowCommands>
+        <Metro:WindowCommands ShowSeparators="False">
+            <Button Content="New" Click="OnStart"></Button>
+            <Button Content="Compute" Click="OnRun"></Button>
+            <Button Content="Simulate" Click="OnRunByStep"></Button>
+        </Metro:WindowCommands>
+    </Metro:MetroWindow.RightWindowCommands>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" MinHeight="200"/>
+            <RowDefinition Height="30"/>
+        </Grid.RowDefinitions>
+        <anycad:RenderControl Grid.Row="0" x:Name="mRenderCtrl" Grid.ColumnSpan="2" ViewerReady="mRenderCtrl_ViewerReady"></anycad:RenderControl>
+        <StatusBar Grid.Row="1">
+            <StatusBarItem x:Name="mStatusCtrl">Waiting...</StatusBarItem>
+        </StatusBar>
+    </Grid>
+</Metro:MetroWindow>
